@@ -1,6 +1,7 @@
 import json
 
 import requests
+from config import config
 
 
 # send message to Alquist
@@ -13,5 +14,5 @@ def send_to_alquist(session_id, message_text, context, state):
         "context": context,
         "state": state
     })
-    r = requests.post("https://alquist.herokuapp.com/", params=params, headers=headers, data=data)
+    r = requests.post(config["alquist_url"], params=params, headers=headers, data=data)
     return r.json()
