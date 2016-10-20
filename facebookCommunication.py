@@ -93,8 +93,8 @@ def send_messages(sender_id, messages):
                 t = Timer((cumulated_delay + 500.0) / 1000.0, set_typing, [sender_id])
                 t.start()
             # if the delay between messages is too short, make it bigger to preserve the order of messages
-            if messages[i]['delay'] < 100:
-                messages[i]['delay'] = 100
+            if messages[i]['delay'] < 500:
+                messages[i]['delay'] = 500
             # add relative delays to cumulated (absolute) delay
             cumulated_delay += messages[i]['delay']
 
